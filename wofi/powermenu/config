@@ -1,0 +1,17 @@
+term=foot
+location=bottom_right
+yoffset=-80
+xoffset=-80
+height=70
+width=470
+columns=5
+rows=1
+
+prompt=
+show=dmenu
+insensitive=true
+allow_images=true
+hide_scroll=true
+
+aways_parse_args=true
+show_all=true

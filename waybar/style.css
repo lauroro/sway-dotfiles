@@ -1,0 +1,118 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Ubuntu Mono Nerd Font;
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 0;
+}
+
+window#waybar {
+  background: #000000;
+  color: #dedede;
+}
+
+tooltip {
+  background: #141414;
+  border-radius: 6px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #121212;
+}
+
+#workspaces button {
+  padding: 0 3px;
+  color: #434343;
+  margin-right: 5px;
+}
+
+#workspaces button.active {
+  color: #dedede;
+}
+
+#workspaces button.focused {
+  color: #dedede;
+  border-radius: 6px;
+}
+
+#workspaces button.urgent {
+  color: #0f0f0f;
+  border-radius: 6px;
+}
+
+#workspaces button:hover {
+  color: #dfdfdf;
+  border-radius: 6px;
+}
+
+#clock, #battery, #pulseaudio, #network, #workspaces, #tray, #backlight {
+  padding: 4px 8px;
+  margin: 3px 0px;
+  background-color: #202020;
+}
+
+#tray {
+  border-radius: 6px;
+  margin-right: 4px;
+}
+
+#workspaces {
+  border-radius: 6px;
+  padding-right: 5px;
+  margin-left: 4px;
+}
+
+#clock {
+  /*color: #f9e2af;*/
+  border-radius: 6px;
+}
+
+#network {
+  /*color: #fab387;*/
+  border-radius: 6px 0px 0px 6px;
+}
+
+#pulseaudio {
+  /*color: #588cd3;*/
+}
+
+#battery{
+  /*color:  #58d3a4;*/
+  border-radius: 0 6px 6px 0;
+  margin-right: 4px;
+}
+
+#backlight{
+  /*color: #a51a9a;*/
+}
+
+#custom-spotify-metadata, #custom-spotify-play-pause, #custom-spotify-prev, #custom-spotify-next, #custom-spotify-quit {
+  color: #dedede;
+  font-size: 15px;
+  padding: 1px 10px;
+  background-color: #202020;
+
+}
+#custom-spotify-metadata {
+  margin: 3px 0;
+  border-radius: 6px 0px 0px 6px;
+}
+#custom-spotify-metadata.playing {
+  color: #dedede;
+}
+#custom-spotify-metadata.paused {
+  color: #dedede;
+}
+#custom-spotify-prev {
+  margin: 3px 0;
+}
+#custom-spotify-play-pause {
+  margin: 3px 0;
+}
+#custom-spotify-next {
+  margin: 3px 0;
+}
+#custom-spotify-quit {
+  margin: 3px 3px 3px 0;
+  border-radius: 0 6px 6px 0;
+}

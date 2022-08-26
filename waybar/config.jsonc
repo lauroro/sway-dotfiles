@@ -1,0 +1,143 @@
+{
+  "position": "top", 
+  
+  "modules-left":   [
+    "sway/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right":  [
+    "custom/spotify-monitor", 
+    "custom/spotify-metadata",
+    "custom/spotify-prev",
+    "custom/spotify-play-pause",
+    "custom/spotify-next",
+    "custom/spotify-quit",
+    "tray",
+    "network",
+    //"backlight",
+    "pulseaudio",
+    "battery"
+  ],
+
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+  },
+  
+  "tray": {
+    "icon-size": 13,
+    "spacing": 10
+  },
+  
+  "backlight":{
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["",""],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+  },
+  
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon}",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
+    "tooltip-format": "{capacity}%"
+  },
+  
+  "clock": {
+   "format": "{:%R}",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  
+  "network": {
+    "format-wifi": " ",
+    "format-ethernet": " {essid}",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "睊 Disconnected",
+    "tooltip-format-wifi": "{essid} | Signal: {signalStrength}% | Download: {bandwidthDownBits}, Upload: {bandwidthUpBits}"
+  },
+  
+  "pulseaudio": {
+    "tooltip-format": "{volume}%",
+    "format": "{icon}",
+    "format-muted": "ﱝ",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-bluetooth": "{volume}% {format_source}",
+    "format-bluetooth-muted": "{format_source}",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "scroll-step": 1,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", "墳", ""]
+    }
+  },
+  
+  "custom/spotify-monitor": {
+    "interval": 5,
+    "exec": "~/.config/waybar/spotify/monitor.sh",
+    "signal": 4
+  },
+  
+  "custom/spotify-metadata": {
+    "format": " {}",
+    "max-length": 30,
+    "interval": "once",
+    "return-type": "json",
+    "exec": "~/.config/waybar/spotify/metadata.sh",
+    "on-click": "sway workspace music",
+    "signal": 5
+  },
+  
+  "custom/spotify-play-pause": {
+    "format": "{}",
+    "interval": "once",
+    "return-type": "json",
+    "exec": "~/.config/waybar/spotify/play-pause.sh",
+    "on-click": "~/.config/waybar/spotify/controls.sh",
+    "signal": 5
+  },
+  
+  "custom/spotify-next": {
+    "format": "怜",
+    "return-type": "json",
+    "interval": "once",
+    "exec": "~/.config/waybar/spotify/metadata.sh",
+    "on-click": "~/.config/waybar/spotify/controls.sh next",
+    "signal": 5
+  },
+  
+  "custom/spotify-prev": {
+    "format": "玲",
+    "interval": "once",
+    "return-type": "json",
+    "exec": "~/.config/waybar/spotify/metadata.sh",
+    "on-click": "~/.config/waybar/spotify/controls.sh prev",
+    "signal": 5
+  },
+  
+  "custom/spotify-quit": {
+    "format": "",
+    "interval": "once",
+    "return-type": "json",
+    "exec": "~/.config/waybar/spotify/metadata.sh",
+    "on-click": "~/.config/waybar/spotify/quit.sh ",
+    "signal": 6
+  },
+}

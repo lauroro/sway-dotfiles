@@ -1,0 +1,18 @@
+text-color=#dedede
+background-color=#121212
+border-color=#323232
+default-timeout=8000
+font=Ubuntu Mono Nerd Font 13
+border-radius=4
+border-size=2
+width=300
+padding=18
+
+[urgency=high]
+border-color=#fc9f35
+default-timeout=0
+border-size=4
+layer=overlay
+
+[mode=dnd]
+invisible=1

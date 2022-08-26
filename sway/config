@@ -1,0 +1,129 @@
+set $mod Mod4
+
+
+# INPUT
+input "type:keyboard" {
+  xkb_layout "it"
+  xkb_options "grp:win_space_toggle"
+  repeat_delay 350
+  repeat_rate 50
+}
+
+input "type:touchpad" {
+  tap enabled
+  natural_scroll enabled
+  dwt enabled
+  accel_profile "flat" # disable mouse acceleration (alt. "adaptive")
+  pointer_accel 0.2    # mouse sensitivity (min -1, max 1)
+}
+
+
+# GENERALS
+output * bg ~/.config/sway/background fill
+
+bar {
+  swaybar_command waybar
+}
+
+floating_modifier $mod normal
+
+default_border pixel 2
+
+gaps inner 5
+gaps outer 0 
+smart_gaps on
+
+#xwayland disable
+
+
+# BORDERS COLOR
+# Property Name           Border    BG        Text      Indicator   Child Border
+client.focused            #515151   #515151   #515151   #515151     #515151
+client.unfocused          #232a2d   #232a2d   #232a2d
+client.focused_inactive   #232a2d   #232a2d   #232a2d
+client.urgent             #232a2d   #232a2d   #232a2d
+
+
+# KEYBINDINGS
+bindsym $mod+Return exec foot
+bindsym $mod+q kill
+bindsym $mod+Shift+r exec swaymsg reload
+bindsym $mod+Space exec wofi
+bindsym $mod+p exec bash ~/.config/wofi/scripts/powermenu.sh
+bindsym $mod+Shift+b exec swaybg -i ~/.config/sway/background
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+# WORKSPACES
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym Alt+1 move container to workspace number 1
+bindsym Alt+2 move container to workspace number 2
+bindsym Alt+3 move container to workspace number 3
+bindsym Alt+4 move container to workspace number 4
+bindsym Alt+5 move container to workspace number 5
+bindsym Alt+6 move container to workspace number 6
+bindsym Alt+7 move container to workspace number 7
+bindsym Alt+8 move container to workspace number 8
+bindsym Alt+9 move container to workspace number 9
+bindsym Alt+0 move container to workspace number 10
+
+workspace_auto_back_and_forth yes
+bindsym $mod+h splith
+bindsym $mod+v splitv
+
+bindsym $mod+t layout tabbed
+bindsym F11 fullscreen
+bindsym $mod+f floating toggle
+bindsym $mod+a focus parent
+
+# left: shrink the containers width
+# right: grow the containers width
+# up: shrink the containers height
+# down: grow the containers height
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+  bindsym Left resize shrink width 10px
+  bindsym Down resize grow height 10px
+  bindsym Up resize shrink height 10px
+  bindsym Right resize grow width 10px
+
+  bindsym Escape mode "default"
+}
+
+bindsym Print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date + '%Y-%m-%d-%T.png')"
+
+bindsym $mod+F2 exec bash ~/.config/sway/Scripts/volume-down.sh
+bindsym $mod+F3 exec bash ~/.config/sway/Scripts/volume-up.sh
+bindsym $mod+F11 exec brightnessctl set 5%-
+bindsym $mod+F12 exec brightnessctl set 5%+
+
+
+
+
+# ON STARTUP
+exec mako
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec libinput-gestures-setup start
+exec swayidle -w \
+        timeout 300  'swaymsg exec bash $HOME/.config/sway/Scripts/lock.sh' \
+        before-sleep 'swaymsg exec bash $HOME/.config/sway/Scripts/lock.sh'
