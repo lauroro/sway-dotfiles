@@ -110,7 +110,7 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
-bindsym $mod+F12 exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date + '%Y-%m-%d-%T.png')"
+bindsym $mod+F12 exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date).png"
 
 bindsym $mod+F2 exec bash ~/.config/sway/Scripts/volume-down.sh
 bindsym $mod+F3 exec bash ~/.config/sway/Scripts/volume-up.sh
