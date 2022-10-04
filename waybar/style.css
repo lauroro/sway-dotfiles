@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0;
   font-family: Ubuntu Mono Nerd Font;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   min-height: 0;
 }
@@ -21,7 +21,7 @@ tooltip {
 }
 
 #workspaces button {
-  padding: 0 3px;
+  padding: 3px;
   color: #434343;
   margin-right: 5px;
 }
@@ -41,14 +41,13 @@ tooltip {
 }
 
 #workspaces button:hover {
-  color: #dfdfdf;
+  color: #000000;
   border-radius: 6px;
 }
 
 #clock, #battery, #pulseaudio, #network, #workspaces, #tray, #backlight {
   padding: 4px 8px;
-  margin: 3px 0px;
-  background-color: #202020;
+  /*background-color: #202020;*/
 }
 
 #tray {
@@ -57,44 +56,34 @@ tooltip {
 }
 
 #workspaces {
-  border-radius: 6px;
-  padding-right: 5px;
   margin-left: 4px;
 }
 
 #clock {
-  /*color: #f9e2af;*/
   border-radius: 6px;
 }
 
 #network {
-  /*color: #fab387;*/
   border-radius: 6px 0px 0px 6px;
 }
 
 #pulseaudio {
-  /*color: #588cd3;*/
 }
 
 #battery{
-  /*color:  #58d3a4;*/
   border-radius: 0 6px 6px 0;
   margin-right: 4px;
 }
 
-#backlight{
-  /*color: #a51a9a;*/
-}
+#backlight{}
 
 #custom-spotify-metadata, #custom-spotify-play-pause, #custom-spotify-prev, #custom-spotify-next, #custom-spotify-quit {
   color: #dedede;
-  font-size: 15px;
-  padding: 1px 10px;
-  background-color: #202020;
+  padding: 0px 10px;
 
 }
 #custom-spotify-metadata {
-  margin: 3px 0;
+  margin-left: 8px;
   border-radius: 6px 0px 0px 6px;
 }
 #custom-spotify-metadata.playing {

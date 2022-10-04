@@ -1,6 +1,6 @@
 * {
   font-family:  Ubuntu Mono Nerd Font;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
 }
 
@@ -19,6 +19,7 @@
   background-color: transparent;
   color: #dedede;
   border-radius: 5px;
+  border-color: transparent
 }
 
 #scroll {

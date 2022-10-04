@@ -1,7 +1,7 @@
 term=foot
 location=bottom_right
-yoffset=-80
-xoffset=-80
+yoffset=-1280
+xoffset=-20
 height=70
 width=470
 columns=5

@@ -14,7 +14,7 @@ input "type:touchpad" {
   natural_scroll enabled
   dwt enabled
   accel_profile "flat" # disable mouse acceleration (alt. "adaptive")
-  pointer_accel 0.2    # mouse sensitivity (min -1, max 1)
+  pointer_accel 0.27    # mouse sensitivity (min -1, max 1)
 }
 
 
@@ -110,14 +110,12 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
-bindsym Print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date + '%Y-%m-%d-%T.png')"
+bindsym $mod+F12 exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date + '%Y-%m-%d-%T.png')"
 
 bindsym $mod+F2 exec bash ~/.config/sway/Scripts/volume-down.sh
 bindsym $mod+F3 exec bash ~/.config/sway/Scripts/volume-up.sh
-bindsym $mod+F11 exec brightnessctl set 5%-
-bindsym $mod+F12 exec brightnessctl set 5%+
-
-
+bindsym $mod+F5 exec brightnessctl set 5%-
+bindsym $mod+F6 exec brightnessctl set 5%+
 
 
 # ON STARTUP
